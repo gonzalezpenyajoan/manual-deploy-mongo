@@ -3,19 +3,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prestart": "node ./create-dev-env.js && docker compose down --remove-orphans",
-    "start": "run-p -l type-check:watch start:dev start:local-db",
-    "start:dev": "tsx --require dotenv/config --watch src/index.ts",
-    "prestart:console-runners": "npm run prestart",
-    "start:console-runners": "run-p type-check:watch console-runners start:local-db",
-    "console-runners": "tsx --require dotenv/config --watch src/console-runners/index.ts",
-    "start:local-db": "docker compose up -d",
-    "clean": "rimraf dist",
-    "build": "npm run clean && tsc --project tsconfig.prod.json",
-    "type-check": "tsc --noEmit --preserveWatchOutput",
-    "type-check:watch": "npm run type-check -- --watch",
-    "test": "vitest run -c ./config/test/config.ts",
-    "test:watch": "vitest watch -c ./config/test/config.ts"
+    "start": "node index.js"
   },
   "imports": {
     "#*": "./*"
